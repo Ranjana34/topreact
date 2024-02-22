@@ -449,7 +449,7 @@ body {
   line-height: var(--bs-body-line-height);
   color: var(--bs-body-color);
   text-align: var(--bs-body-text-align);
-  background-color:#87CEEB!important; /*
+  background-color:#f2f2f2!important; /*
     Table of Contents
 
     Name                 : JOBICK
@@ -11352,7 +11352,69 @@ div, span, ol, ul {
   width: calc(var(--dz-sidebar-width) - 30px);
   min-width: calc(var(--dz-sidebar-width) - 30px);
   left: 15px !important; }
+  .order-card {
+    color: #fff;
+}
 
+.bg-c-blue {
+    background: linear-gradient(45deg,#4099ff,#73b4ff);
+}
+.bg-c-orange {
+    background: linear-gradient(45deg,#FFA500,#FFD580);
+}
+.bg-c-purple {
+    background: linear-gradient(45deg,#bd5fb5,#b9b3fc);
+}
+.bg-c-red {
+    background: linear-gradient(45deg,#235347,#6c926d);
+}
+.bg-c-black {
+    background: linear-gradient(45deg,#b5d7fd,#d6f2eb);
+}
+
+.bg-c-green {
+    background: linear-gradient(45deg,#2ed8b6,#59e0c5);
+}
+
+.bg-c-yellow {
+    background: linear-gradient(45deg,#FFB64D,#ffcb80);
+}
+
+.bg-c-pink {
+    background: linear-gradient(45deg,#FF5370,#ff869a);
+}
+
+.card {
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
+    box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
+    border: none;
+    margin-bottom: 30px;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.card .card-block {
+    padding: 25px;
+}
+
+.order-card i {
+    font-size: 26px;
+}
+
+.f-left {
+    float: left;
+}
+
+.f-right {
+    float: right;
+}
+h6{
+	color:#fff!important;
+}
+h2{
+	color:#fff!important;
+}
 .dlabnav {
   width: var(--dz-sidebar-width);
   padding-bottom: 0;
@@ -11361,7 +11423,7 @@ div, span, ol, ul {
   top: var(--dz-header-height);
   padding-top: 0;
   z-index: 6;
-  background-color: var(--primary);
+  background-color: #87CEEB;
   transition: all .2s ease;
   box-shadow: 0rem 0.9375rem 1.875rem 0rem rgba(0, 0, 0, 0.02); }
   .dlabnav .dlabnav-scroll {
@@ -22912,7 +22974,7 @@ table.dataTable thead > tr > th.sorting_disabled::before {
     margin-bottom: 15px; }
 
 .logo-auth {
-  width: 150px;height:120px; }
+  width: 140px;height:90px; }
   @media only screen and (max-width: 35.9375rem) {
     .logo-auth {
       height: 90px; 
@@ -23171,6 +23233,12 @@ span.required {
   transition: background 1s steps(28); }
 
 /* ------Dashboard------ */
+.logo-maker{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  background:#fff;
+  padding:20px 10px;
+}
 #RecentActivityContent {
   height: 27.1875rem;
   overflow-y: scroll; }
@@ -23375,7 +23443,7 @@ span.required {
   height: 6.25rem;
   width: 6.25rem;
   border-radius: 0.5rem; }
-
+  
 @media only screen and (max-width: 35.9375rem) {
   .user img {
     height: 5rem;
