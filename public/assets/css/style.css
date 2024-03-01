@@ -23243,6 +23243,94 @@ span.required {
 #RecentActivityContent {
   height: 27.1875rem;
   overflow-y: scroll; }
+#slider, .wrap, .slide-content{
+    margin:0;
+    padding:0;
+    font-family: Cabin, Helvetica, sans-serif;
+    width:100%;
+    height:;
+    overflow:hidden;
+    z-index:1;
+    height:350px;
+    margin-bottom:50px;
+}
+.wrap{position:relative;}
+
+.slide{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all 0s;
+}
+
+.slide1{background-image: url('http://localhost:3000/assets/images/top.jpg');}
+.slide2{background-image: url('http://localhost:3000/assets/images/top.jpg');}
+.slide3{background-image: url('http://localhost:3000/assets/images/top.jpg');}
+
+.slide-content{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.slide-content span{
+    font-size: 5rem;
+    color:#fff;
+    background-color:rgba(0,0,0, .6);
+    padding:10px 20px;
+}
+
+.dir-control{
+    cursor: pointer;
+    position:absolute;
+    top:50%;
+    margin-top:-30px;
+    width:0;
+    height:0;
+    z-index:5;
+}
+.fa {
+  display:inline-block;
+   line-height: 50px;
+   background-color:rgba(0,0,0, .3);
+   width:50px;
+   height:56px;
+   color:white;
+   text-align: center;
+   vertical-align: bottom;
+}
+
+#dir-control-left{
+    left:0;
+    margin-left:30px;
+}
+
+#dir-control-right{
+    right:0;
+    margin-right:60px;
+}
+.slider-active{
+    visibility:hidden;
+    opacity:0;
+}
+.slide.slide-is-active{
+    visibility:visible;
+    opacity: 1;
+}
+
+.slide-transition{
+    transition: all .5s ease-in-out;
+}
+
+
+
 
 .plus-box {
   background: #145650;
@@ -34638,17 +34726,12 @@ h1, .h1, .h1, h2, .h2, .h2, h3, .h3, .h3, h4, .h4, .h4, h5, .h5, .h5, h6, .h6, .
   height:90px;
   width:95px;
 }
-.topbanner{
-  width:100%;
-  height:180px;
-  padding-bottom:40px;
-}
+
 .bottombanner{
   padding-top:50px;
   width:100%;
-  height:180px;
-  position:fixed;
   bottom:0;
+  height:100px;
 }
 td{
 padding:6px;

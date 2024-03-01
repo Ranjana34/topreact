@@ -34,6 +34,11 @@ class PaymentSummary extends React.Component{
                     </div>
                 </div>
         </div>
+        <div class="row">
+         <div class="col-md-12">
+         <img class="bottombanner" src="assets/images/top.jpg" alt="Bottom Banner"/>
+         </div>
+         </div>
     </div>
     );
 }

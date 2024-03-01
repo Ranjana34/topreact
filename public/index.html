@@ -20,11 +20,6 @@
             <div class="sk-child sk-bounce3"></div>
          </div>
       </div>
-      <div class="row">
-         <div class="col-md-12">
-         <img class="bottombanner" src="assets/images/top.jpg" alt="Bottom Banner"/>
-         </div>
-   </div>
       <noscript>You need to enable JavaScript to run this app.</noscript>
       <div id="root"></div>
       <script src="assets/vendor/global/global.min.js"></script>
@@ -38,6 +33,66 @@
       <script src="assets/vendor/datatables/js/jquery.dataTables.min.js"></script>
       <script src="assets/js/plugins-init/datatables.init.js"></script>  
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+      <script id="rendered-js">
+         document.addEventListener('DOMContentLoaded', function () {
+         
+           var slideImages = document.querySelectorAll('.slide'),
+           dirRight = document.getElementById('dir-control-right'),
+           dirLeft = document.getElementById('dir-control-left'),
+           current = 0;
+           //if javascript is on apply styling
+           function jsActive() {
+             for (var i = 0; i < slideImages.length; i++) {if (window.CP.shouldStopExecution(0)) break;
+               slideImages[i].classList.add('slider-active');
+             }window.CP.exitedLoop(0);
+           }
+           function reset() {
+             for (var i = 0; i < slideImages.length; i++) {if (window.CP.shouldStopExecution(1)) break;
+               slideImages[i].classList.remove('slide-is-active');
+             }window.CP.exitedLoop(1);
+           }
+           function startSlide() {
+             reset();
+             slideImages[0].classList.add('slide-is-active');
+             setTimeout(function () {
+               for (var i = 0; i < slideImages.length; i++) {if (window.CP.shouldStopExecution(2)) break;
+                 slideImages[i].classList.add('slide-transition');
+               }window.CP.exitedLoop(2);
+             }, 20);
+         
+         
+           }
+           function slideLeft() {
+             reset();
+             slideImages[current - 1].classList.add('slide-is-active');
+             current--;
+           }
+           function slideRight() {
+             reset();
+             slideImages[current + 1].classList.add('slide-is-active');
+             current++;
+           }
+         
+           dirLeft.addEventListener('click', function () {
+             if (current === 0) {
+               current = slideImages.length;
+             }
+             slideLeft();
+           });
+         
+           dirRight.addEventListener('click', function () {
+             if (current === slideImages.length - 1) {
+               current = -1;
+             }
+             slideRight();
+           });
+           jsActive();
+           startSlide();
+         
+         
+         });
+             </script>
          </body>
 </html>
