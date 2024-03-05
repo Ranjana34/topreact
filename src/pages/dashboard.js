@@ -74,9 +74,9 @@ class Dashboard extends React.Component{
 				</div>
 			</div>
 			<div class="row">
-         <div class="col-md-12">
-         <img class="bottombanner" src="assets/images/top.jpg" alt="Bottom Banner"/>
-         </div>
+				<div class="col-md-12 foot">
+				<p class="footcol" align="center">©Copyright 2024  | Design By Squareitservices</p>
+				</div>
          </div>
     </div>
     );
