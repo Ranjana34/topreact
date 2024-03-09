@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Login from '../Login/Login';
+import Register from '../Register/Register';
 import Dashboard from '../Dashboard/Dashboard';
 import { Routes, Route } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
@@ -30,6 +31,7 @@ const ProtectLayout = () => {
             <Routes>
                 <Route path="/" element={<Dashboard />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
             </Routes>
         </>
     );

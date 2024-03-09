@@ -116,7 +116,14 @@ const Login = () => {
                                                 </div>
                                                 <div className="row">
                                                     <div className="col-md-12">
-                                                        <button className="btn btn-warning reg">
+                                                        <button
+                                                            onClick={() =>
+                                                                navigate(
+                                                                    '/register'
+                                                                )
+                                                            }
+                                                            className="btn btn-warning reg"
+                                                        >
                                                             Register
                                                         </button>
                                                     </div>

@@ -29,7 +29,6 @@ const Register = () => {
 
                         formData.append('email', values.username);
                         formData.append('password', values.password);
-                        login(formData);
                     } catch (err) {
                         setStatus({ success: false });
                         setErrors({ submit: err.message });
@@ -115,10 +114,6 @@ const Register = () => {
                                                         onBlur={handleBlur}
                                                         onChange={handleChange}
                                                     />
-                                                    <span className="show-pass eye">
-                                                        <i className="fa fa-eye-slash"></i>
-                                                        <i className="fa fa-eye"></i>
-                                                    </span>
                                                 </div>
                                                 <div className="text-center">
                                                     <button
