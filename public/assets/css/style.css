@@ -23248,7 +23248,7 @@ span.required {
     padding:0;
     font-family: Cabin, Helvetica, sans-serif;
     width:100%;
-    height:;
+    /* height:; */
     overflow:hidden;
     z-index:1;
     height:350px;
@@ -23267,16 +23267,7 @@ span.required {
     background-repeat: no-repeat;
     transition: all 0s;
 }
-.foot{
-  background:#87ceeb;
-  padding:15px;
-  margin-top:20px;
-}
-.footcol{
-  color:#fff;
-  font-weight:bold;
-  font-size:14px;
-}
+
 .slide1{background-image: url('http://localhost:3000/assets/images/top.jpg');}
 .slide2{background-image: url('http://localhost:3000/assets/images/top.jpg');}
 .slide3{background-image: url('http://localhost:3000/assets/images/top.jpg');}
@@ -23288,7 +23279,11 @@ span.required {
     align-items: center;
     text-align: center;
 }
-
+.reg{
+  float:right;
+  margin-top:13px;
+  font-weight:bold;
+}
 .slide-content span{
     font-size: 5rem;
     color:#fff;
@@ -25294,7 +25289,7 @@ div#mCSB_1 {
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: #fff; }
   [data-theme-version="dark"] .tab-my .nav-link.active {
-    background-color: #595BAD; !important; }
+    background-color: #595BAD !important; }
 
 [data-theme-version="dark"] .dd .accordion-body,
 [data-theme-version="dark"] .dz-terms {
@@ -25326,7 +25321,7 @@ div#mCSB_1 {
       background-color: #e9ecef !important; }
     [data-theme-version="dark"] .admin-settings .dropdown-menu .dropdown-item.active {
       background-color: var(--rgba-primary-1) !important;
-      color: #595BAD; !important; }
+      color: #595BAD !important; }
 
 [data-theme-version="dark"] .nav-header .brand-title path {
   fill: var(--text-dark); }
@@ -49622,7 +49617,7 @@ div#mCSB_1 {
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: #fff; }
   [data-theme-version="dark"] .tab-my .nav-link.active {
-    background-color: #595BAD; !important; }
+    background-color: #595BAD !important; }
 
 [data-theme-version="dark"] .dd .accordion-body,
 [data-theme-version="dark"] .dz-terms {
@@ -49654,7 +49649,7 @@ div#mCSB_1 {
       background-color: #e9ecef !important; }
     [data-theme-version="dark"] .admin-settings .dropdown-menu .dropdown-item.active {
       background-color: var(--rgba-primary-1) !important;
-      color: #595BAD; !important; }
+      color: #595BAD !important; }
 
 [data-theme-version="dark"] .nav-header .brand-title path {
   fill: var(--text-dark); }

@@ -8,8 +8,8 @@
 	<!-- PAGE TITLE HERE -->
 	<title>TOPUP : FRONTEND PANEL</title>
 	<!-- Favicon icon -->
-    <link href="assets/css/bootstrap-select.min.css" rel="stylesheet">
-    <link class="main-css" href="assets/css/style.css" rel="stylesheet">
+  <link href="/public/assets/css/bootstrap-select.min.css" rel="stylesheet">
+  <link class="main-css" href="/public/assets/css/style.css" rel="stylesheet">
   
 </head>
    <body>
@@ -22,16 +22,16 @@
       </div>
       <noscript>You need to enable JavaScript to run this app.</noscript>
       <div id="root"></div>
-      <script src="assets/vendor/global/global.min.js"></script>
-      <script src="assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-      <script src="assets/vendor/chart.js/Chart.bundle.min.js"></script>
-      <script src="assets/js/custom.min.js"></script>
-      <script src="assets/js/deznav-init.js"></script>
-      <script src="assets/vendor/peity/jquery.peity.min.js"></script>
-      <script src="assets/vendor/toastr/js/toastr.min.js"></script>
-      <script src="assets/js/plugins-init/toastr-init.js"></script>
-      <script src="assets/vendor/datatables/js/jquery.dataTables.min.js"></script>
-      <script src="assets/js/plugins-init/datatables.init.js"></script>  
+      <script src="/public/assets/vendor/global/global.min.js"></script>
+      <script src="/public/assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+      <script src="/public/assets/vendor/chart.js/Chart.bundle.min.js"></script>
+      <script src="/public/assets/js/custom.min.js"></script>
+      <script src="/public/assets/js/deznav-init.js"></script>
+      <script src="/public/assets/vendor/peity/jquery.peity.min.js"></script>
+      <script src="/public/assets/vendor/toastr/js/toastr.min.js"></script>
+      <script src="/public/assets/js/plugins-init/toastr-init.js"></script>
+      <script src="/public/assets/vendor/datatables/js/jquery.dataTables.min.js"></script>
+      <script src="/public/assets/js/plugins-init/datatables.init.js"></script>  
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
       <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
@@ -55,7 +55,7 @@
            }
            function startSlide() {
              reset();
-             slideImages[0].classList.add('slide-is-active');
+             slideImages[0]?.classList.add('slide-is-active');
              setTimeout(function () {
                for (var i = 0; i < slideImages.length; i++) {if (window.CP.shouldStopExecution(2)) break;
                  slideImages[i].classList.add('slide-transition');
@@ -66,23 +66,23 @@
            }
            function slideLeft() {
              reset();
-             slideImages[current - 1].classList.add('slide-is-active');
+             slideImages[current - 1]?.classList.add('slide-is-active');
              current--;
            }
            function slideRight() {
              reset();
-             slideImages[current + 1].classList.add('slide-is-active');
+             slideImages[current + 1]?.classList.add('slide-is-active');
              current++;
            }
          
-           dirLeft.addEventListener('click', function () {
+           if(dirLeft) dirLeft.addEventListener('click', function () {
              if (current === 0) {
                current = slideImages.length;
              }
              slideLeft();
            });
          
-           dirRight.addEventListener('click', function () {
+          if(dirRight) dirRight.addEventListener('click', function () {
              if (current === slideImages.length - 1) {
                current = -1;
              }
