@@ -2,14 +2,20 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { loginUser } from '../../api/authApi';
 
 export const LoginUserAsync = createAsyncThunk(
-    'user/registerUser',
+    'user/login',
     async ({ userData, navigate }: any, thunkAPI) => {
         try {
-            const user = await loginUser(userData);
-            thunkAPI.dispatch(loginUserAction(user)); // dispatching a synchronous action after the async operation
-            navigate('/');
-            window.location.reload();
-            return user;
+            const result = await loginUser(userData);
+            if(result[0].success){
+                localStorage.setItem('user', JSON.stringify(result[0].success));
+                thunkAPI.dispatch(loginUserAction(result[0].success));
+                navigate('/');
+                window.location.reload();
+            }else{
+                navigate('/login');
+                thunkAPI.dispatch(loginUserAction(result));
+            }
+            return result;
         } catch (error) {
             return thunkAPI.rejectWithValue(error); // Use rejectWithValue to pass the error to the rejected action
         }

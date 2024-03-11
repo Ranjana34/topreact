@@ -6,7 +6,7 @@ const Navbar = () => {
     function logout() {
         console.log('logout');
 
-        localStorage.removeItem('authanticated');
+        localStorage.removeItem('user');
         navigate('/login');
     }
     return (

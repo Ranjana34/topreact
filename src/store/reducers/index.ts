@@ -2,10 +2,10 @@
 import { combineReducers } from 'redux';
 
 // project import
-import menu from './menu';
+import { bannerReducer } from './menu';
 import { userReducer } from './user';
 // ==============================|| COMBINE REDUCERS ||============================== //
 
-const reducers = combineReducers({ menu, userReducer });
+const reducers = combineReducers({ bannerReducer, userReducer });
 
 export default reducers;

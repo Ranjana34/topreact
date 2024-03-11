@@ -21,6 +21,7 @@ module.exports =  (env, options)=> {
             path: path.resolve(__dirname, './build'),
             filename: '[name].[contenthash].js',
             chunkFilename: '[name].[contenthash].js',
+            publicPath: '/',
             clean: true
         },
         devtool: 'source-map',
@@ -74,6 +75,9 @@ module.exports =  (env, options)=> {
                 },
             ]
         },
+        devServer: {
+            historyApiFallback: true,
+          },
         plugins: [
             // need to use ForkTsCheckerWebpackPlugin because Babel loader ignores the compilation errors for Typescript
             new ForkTsCheckerWebpackPlugin(),

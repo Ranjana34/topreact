@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from '../Navbar/Navbar';
+import { useDispatch, useSelector } from 'react-redux';
+import { BannerAsync } from '../../store/reducers/menu';
 
 const Dashboard = () => {
+    const dispatch = useDispatch();
+    const { banner } = useSelector((state: any) => state.bannerReducer);
+
+    useEffect(() => {
+        dispatch(BannerAsync());
+    }, []);
+
     return (
         <>
             <Navbar />

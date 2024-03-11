@@ -13,15 +13,7 @@ const ProtectLayout = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        //Check login user
-        if (user && user) {
-            localStorage.setItem('authanticated', JSON.stringify(true));
-        }
-        setAuth(JSON.parse(localStorage.getItem('authanticated')));
-    }, [user]);
-
-    useEffect(() => {
-        const isVerifiy = JSON.parse(localStorage.getItem('authanticated'));
+        const isVerifiy = JSON.parse(localStorage.getItem('user'));
         if (isVerifiy) navigate('/');
         else navigate('/login');
     }, [authanticate]);

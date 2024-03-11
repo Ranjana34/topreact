@@ -1,40 +1,53 @@
 // types
-import { createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { getBanner } from '../../api/authApi';
 
 // initial state
-const initialState = {
-    openItem: ['dashboard'],
-    defaultId: 'dashboard',
-    openComponent: 'buttons',
-    drawerOpen: false,
-    componentDrawerOpen: true,
+const initialState: any = {
+    banner: null,
 };
-
+export const BannerAsync = createAsyncThunk(
+    'user/banner',
+    async (data, thunkAPI) => {
+        try {
+            const bannerValue = await getBanner();
+            thunkAPI.dispatch(BannerAction(bannerValue)); // dispatching a synchronous action after the async operation
+            return bannerValue;
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error); // Use rejectWithValue to pass the error to the rejected action
+        }
+    }
+);
 // ==============================|| SLICE - MENU ||============================== //
 
-const menu = createSlice({
-    name: 'menu',
+export const bannerSlice = createSlice({
+    name: 'banner',
     initialState,
     reducers: {
-        activeItem(state, action) {
-            state.openItem = action.payload.openItem;
-        },
+        BannerAction: (state, action) => { state.banner = action.payload }
+    },
+    extraReducers: (builder) => {
+        builder
+            .addCase(BannerAsync.pending, (state, playload) => {
+                console.log(playload, 'loading');
 
-        activeComponent(state, action) {
-            state.openComponent = action.payload.openComponent;
-        },
+                state.status = 'loading';
+            })
+            .addCase(BannerAsync.fulfilled, (state, action) => {
+                console.log(action.payload, 'succeeded');
 
-        openDrawer(state, action) {
-            state.drawerOpen = action.payload.drawerOpen;
-        },
+                state.banner = action.payload;
+                // You can also update other parts of the state here if needed
+            })
+            .addCase(BannerAsync.rejected, (state, action) => {
+                console.log(state, 'failed');
 
-        openComponentDrawer(state, action) {
-            state.componentDrawerOpen = action.payload.componentDrawerOpen;
-        },
+                state.status = 'failed';
+                // You can handle error state if needed
+            });
     },
 });
 
-export default menu.reducer;
+export const { BannerAction } = bannerSlice.actions;
 
-export const { activeItem, activeComponent, openDrawer, openComponentDrawer } =
-    menu.actions;
+export const bannerReducer = bannerSlice.reducer;
