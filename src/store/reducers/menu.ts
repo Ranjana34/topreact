@@ -24,7 +24,9 @@ export const bannerSlice = createSlice({
     name: 'banner',
     initialState,
     reducers: {
-        BannerAction: (state, action) => { state.banner = action.payload }
+        BannerAction: (state, action) => {
+            state.banner = action.payload;
+        },
     },
     extraReducers: (builder) => {
         builder

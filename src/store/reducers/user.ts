@@ -6,12 +6,12 @@ export const LoginUserAsync = createAsyncThunk(
     async ({ userData, navigate }: any, thunkAPI) => {
         try {
             const result = await loginUser(userData);
-            if(result[0].success){
+            if (result[0].success) {
                 localStorage.setItem('user', JSON.stringify(result[0].success));
                 thunkAPI.dispatch(loginUserAction(result[0].success));
                 navigate('/');
                 window.location.reload();
-            }else{
+            } else {
                 navigate('/login');
                 thunkAPI.dispatch(loginUserAction(result));
             }

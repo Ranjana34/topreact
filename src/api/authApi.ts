@@ -3,16 +3,18 @@ import axios from 'axios';
 export const loginUser = async (data: any) => {
     console.log('Login Request', data);
     try {
-        return [{
-            "success": {
-                "id": 1,
-                "name": "Admin",
-                "email": "admin@gmail.com",
-                "email_verified_at": "2023-10-04T00:08:33.000000Z",
-                "created_at": "2023-10-04T00:08:33.000000Z",
-                "updated_at": "2023-10-04T00:08:33.000000Z"
-            }}
-        ]
+        return [
+            {
+                success: {
+                    id: 1,
+                    name: 'Admin',
+                    email: 'admin@gmail.com',
+                    email_verified_at: '2023-10-04T00:08:33.000000Z',
+                    created_at: '2023-10-04T00:08:33.000000Z',
+                    updated_at: '2023-10-04T00:08:33.000000Z',
+                },
+            },
+        ];
         const response = await axios.post(
             'http://41.79.32.42:8000/topupproject22/public/api/login',
             data
