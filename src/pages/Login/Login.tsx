@@ -63,9 +63,6 @@ const Login = () => {
                                                         alt=""
                                                     />
                                                 </div>
-                                                <h4 className="text-center mb-4">
-                                                    Sign in your account
-                                                </h4>
                                                 <div className="form-group mb-4">
                                                     <label
                                                         className="form-label"
