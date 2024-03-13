@@ -36,8 +36,12 @@ const Register = () => {
                             toast.error('Please Input all fields!');
                             return;
                         }
-                        dispatch(RegisterAsync({ userData: formData, navigate: navigate }));
-
+                        dispatch(
+                            RegisterAsync({
+                                userData: formData,
+                                navigate: navigate,
+                            })
+                        );
                     } catch (err) {
                         setStatus({ success: false });
                         setErrors({ submit: err.message });

@@ -15,7 +15,10 @@ export const loginUser = async (data: any) => {
                 },
             },
         ];
-        const response = await axios.post('topupproject22/public/api/login', data);
+        const response = await axios.post(
+            'topupproject22/public/api/login',
+            data
+        );
         console.log('response of login api', response);
         return { response };
     } catch (error) {
@@ -42,7 +45,10 @@ export const registerUser = async (data: any) => {
                 },
             },
         ];
-        const response = await axios.post('topupproject22/public/api/login', data);
+        const response = await axios.post(
+            'topupproject22/public/api/login',
+            data
+        );
         console.log('response of login api', response);
         return { response };
     } catch (error) {

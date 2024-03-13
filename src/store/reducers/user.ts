@@ -69,11 +69,12 @@ export const userSlice = createSlice({
                 state.status = 'failed';
                 toast.error('Failed to login, please try again!');
             })
-            .addCase(RegisterAsync.fulfilled, (state, { payload }) => {toast.success('Register successfully') })
-
+            .addCase(RegisterAsync.fulfilled, (state, { payload }) => {
+                toast.success('Register successfully');
+            });
     },
 });
 
-export const { loginUserAction,registerUserAction } = userSlice.actions;
+export const { loginUserAction, registerUserAction } = userSlice.actions;
 
 export const userReducer = userSlice.reducer;

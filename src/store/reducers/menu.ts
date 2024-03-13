@@ -24,13 +24,21 @@ export const bannerSlice = createSlice({
     name: 'banner',
     initialState,
     reducers: {
-        BannerAction: (state, action) => { state.banner = action.payload; },
+        BannerAction: (state, action) => {
+            state.banner = action.payload;
+        },
     },
     extraReducers: (builder) => {
         builder
-            .addCase(BannerAsync.pending, (state, playload) => { state.status = 'loading'; })
-            .addCase(BannerAsync.fulfilled, (state, action) => { state.banner = action.payload; })
-            .addCase(BannerAsync.rejected, (state, action) => { state.status = 'failed'; });
+            .addCase(BannerAsync.pending, (state, playload) => {
+                state.status = 'loading';
+            })
+            .addCase(BannerAsync.fulfilled, (state, action) => {
+                state.banner = action.payload;
+            })
+            .addCase(BannerAsync.rejected, (state, action) => {
+                state.status = 'failed';
+            });
     },
 });
 

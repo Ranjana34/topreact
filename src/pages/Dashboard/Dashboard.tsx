@@ -89,7 +89,6 @@ const Dashboard = () => {
                 <div className="container-fluid">
                     <div className="row">
                         {bannerlist.map((banner) => (
-
                             <div className="col-md-4 col-xl-3">
                                 <div className="logo-maker text-center">
                                     <img
@@ -98,7 +97,6 @@ const Dashboard = () => {
                                         className="logo-auth"
                                         // src={banner.path}
                                         src="/public/assets/images/bpc.jpg"
-
                                         alt={banner.banner}
                                     />
                                 </div>
