@@ -1,11 +1,12 @@
 import React from 'react';
+import toast from 'react-hot-toast';
 // import { Outlet } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 const Navbar = () => {
     const navigate = useNavigate();
     function logout() {
         console.log('logout');
-
+        toast.success('Logout Successfully!');
         localStorage.removeItem('user');
         navigate('/login');
     }

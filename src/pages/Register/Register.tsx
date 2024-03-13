@@ -2,8 +2,9 @@ import React from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import { Formik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
-
+import toast, { Toaster } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import { RegisterAsync } from '@store/reducers/user';
 
 const Register = () => {
     const dispatch = useDispatch();
@@ -13,8 +14,9 @@ const Register = () => {
         <>
             <Formik
                 initialValues={{
-                    username: 'admin@gmail.com',
-                    password: '123456',
+                    username: '',
+                    password: '',
+                    email: '',
                     submit: null,
                 }}
                 onSubmit={async (
@@ -27,8 +29,15 @@ const Register = () => {
                         const formData = new FormData();
                         console.log('Before appending values:', formData);
 
-                        formData.append('email', values.username);
+                        formData.append('username', values.username);
+                        formData.append('email', values.email);
                         formData.append('password', values.password);
+                        if (values.username == '' || values.password == '') {
+                            toast.error('Please Input all fields!');
+                            return;
+                        }
+                        dispatch(RegisterAsync({ userData: formData, navigate: navigate }));
+
                     } catch (err) {
                         setStatus({ success: false });
                         setErrors({ submit: err.message });

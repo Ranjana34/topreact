@@ -15,10 +15,7 @@ export const loginUser = async (data: any) => {
                 },
             },
         ];
-        const response = await axios.post(
-            'http://41.79.32.42:8000/topupproject22/public/api/login',
-            data
-        );
+        const response = await axios.post('topupproject22/public/api/login', data);
         console.log('response of login api', response);
         return { response };
     } catch (error) {
@@ -30,6 +27,32 @@ export const loginUser = async (data: any) => {
     }
 };
 
+export const registerUser = async (data: any) => {
+    console.log('Login Request', data);
+    try {
+        return [
+            {
+                success: {
+                    id: 1,
+                    name: 'Admin',
+                    email: 'admin@gmail.com',
+                    email_verified_at: '2023-10-04T00:08:33.000000Z',
+                    created_at: '2023-10-04T00:08:33.000000Z',
+                    updated_at: '2023-10-04T00:08:33.000000Z',
+                },
+            },
+        ];
+        const response = await axios.post('topupproject22/public/api/login', data);
+        console.log('response of login api', response);
+        return { response };
+    } catch (error) {
+        console.error('Error:', error);
+        if (error?.response?.data) {
+            const errorMessage = error.response.data.message;
+            console.log('Registration error:', errorMessage);
+        }
+    }
+};
 export const getBanner = async () => {
     try {
         return {
