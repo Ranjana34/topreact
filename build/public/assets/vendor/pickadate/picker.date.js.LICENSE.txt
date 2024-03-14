@@ -1,4 +1,0 @@
-/*!
- * Date picker for pickadate.js v3.6.3
- * http://amsul.github.io/pickadate.js/date.htm
- */

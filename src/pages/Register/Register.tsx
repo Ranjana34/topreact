@@ -12,6 +12,7 @@ const Register = () => {
 
     return (
         <>
+        
             <Formik
                 initialValues={{
                     username: '',
@@ -131,10 +132,11 @@ const Register = () => {
                                                 <div className="text-center">
                                                     <button
                                                         type="submit"
-                                                        className="btn btn-primary btn-block"
+                                                        className="btn btn-primary btn-block reg"
                                                     >
                                                         Register
                                                     </button>
+                                                    <p className='my-2 ' style={{color:'gray'}} onClick={()=>{navigate('/login')}}>Back to<span className='back-to-login'> Sign In?</span></p>
                                                 </div>
                                             </div>
                                         </div>

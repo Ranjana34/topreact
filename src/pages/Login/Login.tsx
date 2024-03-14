@@ -115,7 +115,7 @@ const Login = () => {
                                                         Sign In
                                                     </button>
                                                 </div>
-                                                <div className="row">
+                                                <div className="row mt-1">
                                                     <div className="col-md-12">
                                                         <button
                                                             onClick={() =>
