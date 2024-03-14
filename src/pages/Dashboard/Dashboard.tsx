@@ -88,8 +88,8 @@ const Dashboard = () => {
                 </div>
                 <div className="container-fluid">
                     <div className="row">
-                        {bannerlist.map((banner) => (
-                            <div className="col-md-4 col-xl-3">
+                        {bannerlist.map((banner,index) => (
+                            <div key={index} className="col-md-4 col-xl-3">
                                 <div className="logo-maker text-center">
                                     <img
                                         data-toggle="modal"
