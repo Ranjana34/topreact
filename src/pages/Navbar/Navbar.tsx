@@ -35,6 +35,11 @@ const Navbar = () => {
                             <div className="header-left"></div>
                             <ul className="navbar-nav header-right">
                                 <li className="nav-item dropdown header-profile">
+                                    <button className="btn btn-warning">
+                                        My Balance : 120
+                                    </button>
+                                </li>
+                                <li className="nav-item dropdown header-profile">
                                     <a
                                         className="nav-link"
                                         role="button"
@@ -44,7 +49,7 @@ const Navbar = () => {
                                             className="btn btn-primary"
                                             onClick={logout}
                                         >
-                                            LogOut
+                                            Logout
                                         </button>
                                     </a>
                                     <div className="dropdown-menu dropdown-menu-end">
