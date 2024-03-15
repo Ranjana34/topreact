@@ -2,15 +2,20 @@ import React, { useEffect, useState } from 'react';
 import Navbar from '../Navbar/Navbar';
 import { useDispatch, useSelector } from 'react-redux';
 import { BannerAsync } from '../../store/reducers/menu';
-
+// import toast from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 const Dashboard = () => {
     const dispatch = useDispatch();
     const { banner } = useSelector((state: any) => state.bannerReducer);
+    const [bannerlist, setBanner] = useState([]);
 
     useEffect(() => {
         dispatch(BannerAsync());
+        if (banner != null && banner.length > 0) setBanner(banner);
     }, []);
-
+    useEffect(() => {
+        if (banner != null) setBanner(banner);
+    }, [banner]);
     return (
         <>
             <Navbar />
@@ -83,7 +88,21 @@ const Dashboard = () => {
                 </div>
                 <div className="container-fluid">
                     <div className="row">
-                        <div className="col-md-4 col-xl-3">
+                        {bannerlist.map((banner) => (
+                            <div className="col-md-4 col-xl-3">
+                                <div className="logo-maker text-center">
+                                    <img
+                                        data-toggle="modal"
+                                        data-target="#myModal"
+                                        className="logo-auth"
+                                        // src={banner.path}
+                                        src="/public/assets/images/bpc.jpg"
+                                        alt={banner.banner}
+                                    />
+                                </div>
+                            </div>
+                        ))}
+                        {/* <div className="col-md-4 col-xl-3">
                             <div className="logo-maker text-center">
                                 <img
                                     data-toggle="modal"
@@ -126,7 +145,7 @@ const Dashboard = () => {
                                     alt=""
                                 />
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
                 <div className="row">

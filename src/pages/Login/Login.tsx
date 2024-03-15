@@ -4,6 +4,7 @@ import { Formik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUserAction, LoginUserAsync } from '../../store/reducers/user';
 import { useNavigate } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Login = () => {
     const dispatch = useDispatch();
@@ -29,7 +30,10 @@ const Login = () => {
                         setSubmitting(false);
                         const formData = new FormData();
                         console.log('Before appending values:', formData);
-
+                        if (values.username == '' || values.password == '') {
+                            toast.error('Please Input email & password!');
+                            return;
+                        }
                         formData.append('email', values.username);
                         formData.append('password', values.password);
                         login(formData);
@@ -111,7 +115,7 @@ const Login = () => {
                                                         Sign In
                                                     </button>
                                                 </div>
-                                                <div className="row">
+                                                <div className="row mt-1">
                                                     <div className="col-md-12">
                                                         <button
                                                             onClick={() =>

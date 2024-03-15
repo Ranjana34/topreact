@@ -1,1 +1,0 @@
-!function(e){"use strict";jQuery(".datepicker-default").pickadate()}();

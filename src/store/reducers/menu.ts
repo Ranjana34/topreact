@@ -10,9 +10,9 @@ export const BannerAsync = createAsyncThunk(
     'user/banner',
     async (data, thunkAPI) => {
         try {
-            const bannerValue = await getBanner();
-            thunkAPI.dispatch(BannerAction(bannerValue)); // dispatching a synchronous action after the async operation
-            return bannerValue;
+            const getBannerList = await getBanner();
+            thunkAPI.dispatch(BannerAction(getBannerList.success)); // dispatching a synchronous action after the async operation
+            return getBannerList.success;
         } catch (error) {
             return thunkAPI.rejectWithValue(error); // Use rejectWithValue to pass the error to the rejected action
         }
@@ -31,21 +31,13 @@ export const bannerSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(BannerAsync.pending, (state, playload) => {
-                console.log(playload, 'loading');
-
                 state.status = 'loading';
             })
             .addCase(BannerAsync.fulfilled, (state, action) => {
-                console.log(action.payload, 'succeeded');
-
                 state.banner = action.payload;
-                // You can also update other parts of the state here if needed
             })
             .addCase(BannerAsync.rejected, (state, action) => {
-                console.log(state, 'failed');
-
                 state.status = 'failed';
-                // You can handle error state if needed
             });
     },
 });

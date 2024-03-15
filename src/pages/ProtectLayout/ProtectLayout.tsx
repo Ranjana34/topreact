@@ -5,6 +5,7 @@ import Register from '../Register/Register';
 import Dashboard from '../Dashboard/Dashboard';
 import { Routes, Route } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 
 const ProtectLayout = () => {
     const dispatch = useDispatch();
@@ -19,7 +20,7 @@ const ProtectLayout = () => {
     }, [authanticate]);
     return (
         <>
-            {/* {!authanticate ? <Login /> : <Navbar />} */}
+            <Toaster />
             <Routes>
                 <Route path="/" element={<Dashboard />} />
                 <Route path="/login" element={<Login />} />
