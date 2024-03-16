@@ -33,7 +33,10 @@ export const LoginUserAsync = createAsyncThunk(
             const result = await loginUser(userData);
 
             if (result.status == 200) {
-                localStorage.setItem('user', JSON.stringify(result.data.success));
+                localStorage.setItem(
+                    'user',
+                    JSON.stringify(result.data.success)
+                );
                 thunkAPI.dispatch(loginUserAction(result.data.success));
                 navigate('/');
                 window.location.reload();
@@ -54,13 +57,12 @@ export const LoginGuestAsync = createAsyncThunk(
         try {
             // const result = await loginUser(userData);
             userData.role = 'guest';
-            console.log(userData, "Store request");
+            console.log(userData, 'Store request');
             if (isNotEmpty(userData.email) && isNotEmpty(userData.password)) {
                 localStorage.setItem('user', JSON.stringify(userData));
                 thunkAPI.dispatch(loginUserAction(userData));
                 navigate('/');
                 window.location.reload();
-
             } else {
                 navigate('/login');
                 thunkAPI.dispatch(loginUserAction(userData));
@@ -89,7 +91,6 @@ export const RegisterAsync = createAsyncThunk(
     }
 );
 
-
 const initialState: any = {
     user: null,
     status: 'idle',
@@ -104,7 +105,8 @@ export const userSlice = createSlice({
         },
         loginUserAction: (state, action) => {
             state.user = action.payload;
-        }, loginGuestAction: (state, action) => {
+        },
+        loginGuestAction: (state, action) => {
             state.user = action.payload;
         },
     },
@@ -130,7 +132,8 @@ export const userSlice = createSlice({
                 toast.error(
                     'Failed to register new account, please try again!'
                 );
-            }).addCase(LoginGuestAsync.pending, (state, playload) => {
+            })
+            .addCase(LoginGuestAsync.pending, (state, playload) => {
                 state.status = 'loading';
             })
             .addCase(LoginGuestAsync.fulfilled, (state, action) => {
@@ -141,10 +144,11 @@ export const userSlice = createSlice({
             .addCase(LoginGuestAsync.rejected, (state, action) => {
                 state.status = 'failed';
                 toast.error('Failed to login, please try again!');
-            })
+            });
     },
 });
 
-export const { loginUserAction, loginGuestAction, registerUserAction } = userSlice.actions;
+export const { loginUserAction, loginGuestAction, registerUserAction } =
+    userSlice.actions;
 
 export const userReducer = userSlice.reducer;

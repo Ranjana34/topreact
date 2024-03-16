@@ -41,11 +41,23 @@ const Login = () => {
                         if (values.submit === 'login') {
                             login(formData);
                         } else if (values.submit === 'guest') {
-                            console.log({email:values.username,password:values.password},"Guest Register");
-                            dispatch(LoginGuestAsync({ userData: {email:values.username,password:values.password}, navigate: navigate }));
+                            console.log(
+                                {
+                                    email: values.username,
+                                    password: values.password,
+                                },
+                                'Guest Register'
+                            );
+                            dispatch(
+                                LoginGuestAsync({
+                                    userData: {
+                                        email: values.username,
+                                        password: values.password,
+                                    },
+                                    navigate: navigate,
+                                })
+                            );
                         }
-
-                        
                     } catch (err) {
                         setStatus({ success: false });
                         setErrors({ submit: err.message });
@@ -118,15 +130,29 @@ const Login = () => {
                                                     </span>
                                                 </div>
                                                 <div className="text-center">
-                                                    <button type="submit" className="btn btn-primary btn-block"
-                                                    onClick={() => setFieldValue('submit', 'login')}
+                                                    <button
+                                                        type="submit"
+                                                        className="btn btn-primary btn-block"
+                                                        onClick={() =>
+                                                            setFieldValue(
+                                                                'submit',
+                                                                'login'
+                                                            )
+                                                        }
                                                     >
                                                         Sign In
                                                     </button>
                                                 </div>
                                                 <div className="text-center py-2">
-                                                    <button type="submit" className="btn btn-secondary btn-block" 
-                                                    onClick={() => setFieldValue('submit', 'guest')}
+                                                    <button
+                                                        type="submit"
+                                                        className="btn btn-secondary btn-block"
+                                                        onClick={() =>
+                                                            setFieldValue(
+                                                                'submit',
+                                                                'guest'
+                                                            )
+                                                        }
                                                     >
                                                         Sign with Guest
                                                     </button>
@@ -134,7 +160,9 @@ const Login = () => {
                                                 <p
                                                     className="my-2 text-center"
                                                     style={{ color: 'gray' }}
-                                                    onClick={() => { navigate('/register'); }}
+                                                    onClick={() => {
+                                                        navigate('/register');
+                                                    }}
                                                 >
                                                     Create new account
                                                     <span className="back-to-login">
