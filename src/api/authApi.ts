@@ -1,12 +1,12 @@
 import axios from 'axios';
 import { config } from '../../config';
 
-
 export const loginUser = async (data: any) => {
     console.log('Login Request', data);
 
     try {
-        const response = await axios.post(`${(await config()).apiUrl}/topupproject22/public/api/login`,
+        const response = await axios.post(
+            `${(await config()).apiUrl}/topupproject22/public/api/login`,
             data
         );
         console.log('response of login api', response);
@@ -23,7 +23,8 @@ export const loginUser = async (data: any) => {
 export const registerUser = async (data: any) => {
     console.log('register Request', data);
     try {
-        const response = await axios.post(`${(await config()).apiUrl}/topupproject22/public/api/register`,
+        const response = await axios.post(
+            `${(await config()).apiUrl}/topupproject22/public/api/register`,
             data
         );
         console.log('response of login api', response);
@@ -38,17 +39,19 @@ export const registerUser = async (data: any) => {
 };
 export const getBanner = async () => {
     const setKey = new FormData();
-    setKey.append('secretkey', (await config()).secretKey)
+    setKey.append('secretkey', (await config()).secretKey);
 
     try {
-        const response = await axios.post(`${(await config()).apiUrl}/topupproject22/public/api/getbanner`, setKey);
+        const response = await axios.post(
+            `${(await config()).apiUrl}/topupproject22/public/api/getbanner`,
+            setKey
+        );
         console.log('response of banner api', response.data);
         return response.data;
     } catch (error) {
         console.error('getBanner Error:', error);
         if (error?.response?.data) {
             const errorMessage = error.response.data.message;
-
         }
     }
 };
