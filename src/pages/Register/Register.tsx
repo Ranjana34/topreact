@@ -98,7 +98,7 @@ const Register = () => {
                                                         className="form-label"
                                                         htmlFor="email"
                                                     >
-                                                        Full Name
+                                                        Email
                                                     </label>
                                                     <input
                                                         required
@@ -136,7 +136,7 @@ const Register = () => {
                                                         Register
                                                     </button>
                                                     <p
-                                                        className="my-2 "
+                                                        className="my-2"
                                                         style={{
                                                             color: 'gray',
                                                         }}
@@ -147,7 +147,7 @@ const Register = () => {
                                                         Back to
                                                         <span className="back-to-login">
                                                             {' '}
-                                                            Sign In?
+                                                            Sign In
                                                         </span>
                                                     </p>
                                                 </div>

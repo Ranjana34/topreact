@@ -6,15 +6,16 @@ import { BannerAsync } from '../../store/reducers/menu';
 import toast, { Toaster } from 'react-hot-toast';
 const Dashboard = () => {
     const dispatch = useDispatch();
-    const banner:any = useSelector((state: any) => {
-        state.bannerReducer.banner;
-    });
+    const banner: any = useSelector((state: any) => {console.log(state);
+     });
     const [bannerlist, setBanner] = useState([]);
+    console.log(banner);
 
     useEffect(() => {
         dispatch(BannerAsync());
         // if (banner != null && banner.length > 0) setBanner(banner);
     }, []);
+
     useEffect(() => {
         if (banner) setBanner(banner);
 

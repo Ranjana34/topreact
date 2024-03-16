@@ -2,7 +2,7 @@ import React from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import { Formik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginUserAction, LoginUserAsync } from '../../store/reducers/user';
+import { LoginGuestAsync, LoginUserAsync } from '../../store/reducers/user';
 import { useNavigate } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
 
@@ -13,6 +13,7 @@ const Login = () => {
     function login(fdata: any) {
         dispatch(LoginUserAsync({ userData: fdata, navigate: navigate }));
     }
+
     return (
         <>
             <Formik
@@ -36,7 +37,15 @@ const Login = () => {
                         }
                         formData.append('email', values.username);
                         formData.append('password', values.password);
-                        login(formData);
+
+                        if (values.submit === 'login') {
+                            login(formData);
+                        } else if (values.submit === 'guest') {
+                            console.log({email:values.username,password:values.password},"Guest Register");
+                            dispatch(LoginGuestAsync({ userData: {email:values.username,password:values.password}, navigate: navigate }));
+                        }
+
+                        
                     } catch (err) {
                         setStatus({ success: false });
                         setErrors({ submit: err.message });
@@ -50,6 +59,7 @@ const Login = () => {
                     handleChange,
                     handleSubmit,
                     isSubmitting,
+                    setFieldValue,
                     touched,
                     values,
                 }) => (
@@ -108,27 +118,30 @@ const Login = () => {
                                                     </span>
                                                 </div>
                                                 <div className="text-center">
-                                                    <button
-                                                        type="submit"
-                                                        className="btn btn-primary btn-block"
+                                                    <button type="submit" className="btn btn-primary btn-block"
+                                                    onClick={() => setFieldValue('submit', 'login')}
                                                     >
                                                         Sign In
                                                     </button>
                                                 </div>
-                                                <div className="row mt-1">
-                                                    <div className="col-md-12">
-                                                        <button
-                                                            onClick={() =>
-                                                                navigate(
-                                                                    '/register'
-                                                                )
-                                                            }
-                                                            className="btn btn-warning reg"
-                                                        >
-                                                            Register
-                                                        </button>
-                                                    </div>
+                                                <div className="text-center py-2">
+                                                    <button type="submit" className="btn btn-secondary btn-block" 
+                                                    onClick={() => setFieldValue('submit', 'guest')}
+                                                    >
+                                                        Sign with Guest
+                                                    </button>
                                                 </div>
+                                                <p
+                                                    className="my-2 text-center"
+                                                    style={{ color: 'gray' }}
+                                                    onClick={() => { navigate('/register'); }}
+                                                >
+                                                    Create new account
+                                                    <span className="back-to-login">
+                                                        {' '}
+                                                        Sign Up
+                                                    </span>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
