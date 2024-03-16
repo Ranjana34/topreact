@@ -72,9 +72,11 @@ export const userSlice = createSlice({
             .addCase(RegisterAsync.fulfilled, (state, { payload }) => {
                 toast.success('Register successfully');
             })
-            .addCase(LoginUserAsync.rejected, (state, action) => {
+            .addCase(RegisterAsync.rejected, (state, action) => {
                 state.status = 'failed';
-                toast.error('Failed to register new account, please try again!');
+                toast.error(
+                    'Failed to register new account, please try again!'
+                );
             });
     },
 });

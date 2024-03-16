@@ -6,15 +6,19 @@ import { BannerAsync } from '../../store/reducers/menu';
 import toast, { Toaster } from 'react-hot-toast';
 const Dashboard = () => {
     const dispatch = useDispatch();
-    const { banner } = useSelector((state: any) => state.bannerReducer);
+    const banner = useSelector((state: any) => {
+        state.bannerReducer;
+        console.log(state);
+    });
     const [bannerlist, setBanner] = useState([]);
+    console.log(banner, 'Banner');
 
     useEffect(() => {
         dispatch(BannerAsync());
-        if (banner != null && banner.length > 0) setBanner(banner);
+        // if (banner != null && banner.length > 0) setBanner(banner);
     }, []);
     useEffect(() => {
-        if (banner != null) setBanner(banner);
+        // if (banner != null) setBanner(banner);
     }, [banner]);
     return (
         <>
@@ -88,8 +92,8 @@ const Dashboard = () => {
                 </div>
                 <div className="container-fluid">
                     <div className="row">
-                        {bannerlist.map((banner) => (
-                            <div className="col-md-4 col-xl-3">
+                        {bannerlist.map((banner, index) => (
+                            <div key={index} className="col-md-4 col-xl-3">
                                 <div className="logo-maker text-center">
                                     <img
                                         data-toggle="modal"

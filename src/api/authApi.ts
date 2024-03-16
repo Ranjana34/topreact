@@ -1,21 +1,12 @@
 import axios from 'axios';
 import { config } from '../../config';
+
 export const loginUser = async (data: any) => {
     console.log('Login Request', data);
+
     try {
-        // return [
-        //     {
-        //         success: {
-        //             id: 1,
-        //             name: 'Admin',
-        //             email: 'admin@gmail.com',
-        //             email_verified_at: '2023-10-04T00:08:33.000000Z',
-        //             created_at: '2023-10-04T00:08:33.000000Z',
-        //             updated_at: '2023-10-04T00:08:33.000000Z',
-        //         },
-        //     },
-        // ];
-        const response = await axios.post(`${(await config()).apiUrl}/topupproject22/public/api/login`,
+        const response = await axios.post(
+            `${(await config()).apiUrl}/topupproject22/public/api/login`,
             data
         );
         console.log('response of login api', response);
@@ -32,19 +23,8 @@ export const loginUser = async (data: any) => {
 export const registerUser = async (data: any) => {
     console.log('register Request', data);
     try {
-        // return [
-        //     {
-        //         success: {
-        //             id: 1,
-        //             name: 'Admin',
-        //             email: 'admin@gmail.com',
-        //             email_verified_at: '2023-10-04T00:08:33.000000Z',
-        //             created_at: '2023-10-04T00:08:33.000000Z',
-        //             updated_at: '2023-10-04T00:08:33.000000Z',
-        //         },
-        //     },
-        // ];
-        const response = await axios.post(`${(await config()).apiUrl}/topupproject22/public/api/login`,
+        const response = await axios.post(
+            `${(await config()).apiUrl}/topupproject22/public/api/register`,
             data
         );
         console.log('response of login api', response);
@@ -58,32 +38,20 @@ export const registerUser = async (data: any) => {
     }
 };
 export const getBanner = async () => {
+    const setKey = new FormData();
+    setKey.append('secretkey', (await config()).secretKey);
+
     try {
-        // return {
-        //     success: [
-        //         {
-        //             id: 4,
-        //             banner: '1709387829.jpg',
-        //             created_at: '2024-03-02 05:57:09',
-        //             path: 'http://127.0.0.1:8000/images/1709387829.jpg',
-        //         },
-        //         {
-        //             id: 4,
-        //             banner: '1709387829.jpg',
-        //             created_at: '2024-03-02 05:57:09',
-        //             path: 'http://127.0.0.1:8000/images/1709387829.jpg',
-        //         },
-        //     ],
-        // };
-        const response = await axios.post(`${(await config()).apiUrl}/topupproject22/public/api/banner`
+        const response = await axios.post(
+            `${(await config()).apiUrl}/topupproject22/public/api/getbanner`,
+            setKey
         );
-        console.log('response of login api', response);
-        return { response };
+        console.log('response of banner api', response.data);
+        return response.data;
     } catch (error) {
         console.error('getBanner Error:', error);
         if (error?.response?.data) {
             const errorMessage = error.response.data.message;
-            
         }
     }
 };

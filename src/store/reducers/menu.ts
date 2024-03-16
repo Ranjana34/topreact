@@ -10,7 +10,9 @@ export const BannerAsync = createAsyncThunk(
     'user/banner',
     async (data, thunkAPI) => {
         try {
-            const getBannerList = await getBanner();
+            const getBannerList: any = await getBanner();
+            console.log(getBanner);
+
             thunkAPI.dispatch(BannerAction(getBannerList.success)); // dispatching a synchronous action after the async operation
             return getBannerList.success;
         } catch (error) {
