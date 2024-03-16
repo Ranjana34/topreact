@@ -10,7 +10,7 @@ export const loginUser = async (data: any) => {
             data
         );
         console.log('response of login api', response);
-        return { response };
+        return response;
     } catch (error) {
         console.error('Error:', error);
         if (error?.response?.data) {
@@ -28,7 +28,7 @@ export const registerUser = async (data: any) => {
             data
         );
         console.log('response of login api', response);
-        return { response };
+        return response;
     } catch (error) {
         console.error('Error:', error);
         if (error?.response?.data) {
@@ -46,8 +46,8 @@ export const getBanner = async () => {
             `${(await config()).apiUrl}/topupproject22/public/api/getbanner`,
             setKey
         );
-        console.log('response of banner api', response.data);
-        return response.data;
+        console.log('response of banner api', response);
+        return response;
     } catch (error) {
         console.error('getBanner Error:', error);
         if (error?.response?.data) {

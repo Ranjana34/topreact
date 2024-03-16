@@ -7,16 +7,18 @@ export const LoginUserAsync = createAsyncThunk(
     async ({ userData, navigate }: any, thunkAPI) => {
         try {
             const result = await loginUser(userData);
-            if (result[0].success) {
-                localStorage.setItem('user', JSON.stringify(result[0].success));
-                thunkAPI.dispatch(loginUserAction(result[0].success));
+            console.log(result,"RRRRRRRRRRRRRRR");
+            
+            if (result.status == 200) {
+                localStorage.setItem('user', JSON.stringify(result.data.success));
+                thunkAPI.dispatch(loginUserAction(result.data.success));
                 navigate('/');
-                window.location.reload();
+                // window.location.reload();
             } else {
                 navigate('/login');
                 thunkAPI.dispatch(loginUserAction(result));
             }
-            return result[0];
+            return result.data;
         } catch (error) {
             return thunkAPI.rejectWithValue(error); // Use rejectWithValue to pass the error to the rejected action
         }
@@ -28,8 +30,8 @@ export const RegisterAsync = createAsyncThunk(
     async ({ userData, navigate }: any, thunkAPI) => {
         try {
             const result = await registerUser(userData);
-            if (result[0].success) {
-                thunkAPI.dispatch(registerUserAction(result[0].success));
+            if (result.status == 200) {
+                thunkAPI.dispatch(registerUserAction(result.data.success));
             } else {
                 thunkAPI.dispatch(registerUserAction(result));
             }
