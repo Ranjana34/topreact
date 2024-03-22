@@ -152,3 +152,13 @@ export const { loginUserAction, loginGuestAction, registerUserAction } =
     userSlice.actions;
 
 export const userReducer = userSlice.reducer;
+                              
+// -USER BALANCE
+// 	http://localhost:8000/topupproject22/public/api/dealerbalance
+// pass secret key
+
+// -- TRANSACTION SAVE
+//   http://localhost:8000/topupproject22/public/api/dealerbalance
+//  POST
+//  user,mobile,deviceid,service,mode,amount
+//  pass secret key

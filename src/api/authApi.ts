@@ -55,3 +55,21 @@ export const getBanner = async () => {
         }
     }
 };
+export const getBalance = async () => {
+    const setKey = new FormData();
+    setKey.append('secretkey', (await config()).secretKey);
+
+    try {
+        const response = await axios.post(
+            `${(await config()).apiUrl}/topupproject22/public/api/dealerbalance`,
+            setKey
+        );
+        console.log('response of banner api', response);
+        return response;
+    } catch (error) {
+        console.error('getBanner Error:', error);
+        if (error?.response?.data) {
+            const errorMessage = error.response.data.message;
+        }
+    }
+};
